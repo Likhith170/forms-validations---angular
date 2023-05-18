@@ -1,0 +1,52 @@
+<div class="form">
+  <h2 id="registration">Registration Form</h2>
+  <form [formGroup]="reactiveform" (ngSubmit)="onSubmit()">
+    <label for="fname">First name</label>
+  <input type="text" id="fnmae" placeholder="Your first name.." formControlName="firstname" required>
+  <div style="color: red;" *ngIf="reactiveform.get('firstname').hasError('required') && reactiveform.get('firstname').touched">
+    First name is mandatory.
+  </div>
+
+  <label for="lname">Last name</label>
+  <input type="text" id="lnmae" placeholder="Your last name.." formControlName="lastname">
+<div style="color: red;" *ngIf="reactiveform.get('firstname').hasError('required') && reactiveform.get('firstname').touched">
+    Last name is mandatory.
+  </div>
+
+  <label for="email">Email</label>
+  <input type="text" id="email" placeholder="Your email.." formControlName="email">
+  <div style="color: red;" *ngIf="reactiveform.get('firstname').hasError('required') && reactiveform.get('firstname').touched">
+    Enter valid email id.
+  </div>
+
+  <label for="Country">Country</label>
+  <select id="Country" formControlName="country">
+    <option value="India">India</option>
+    <option value="Australia">Australia</option>
+    <option value="USA">USA</option>
+  </select>
+
+  <label for="gender">Gender:</label>
+  <input type="radio" id="male" value="male" formControlName="gender">
+  <label for="male">Male</label>
+  <input type="radio" id="female" value="female" formControlName="gender">
+  <label for="female">Female</label>
+  <input type="radio" id="other" value="other" formControlName="gender">
+  <label for="other">Other</label>
+  <br><br>
+  
+  
+
+  <input type="submit" value="Submit" id="btn">
+  <div style="color: green;" class="submit-message">{{ submitMessage }}</div>
+  <div *ngIf="submitted">
+    <h3>Submitted Details:</h3>
+    <p>First Name: {{ formDetails.firstname }}</p>
+    <p>Last Name: {{ formDetails.lastname }}</p>
+    <p>Email: {{ formDetails.email }}</p>
+    <p>Country: {{ formDetails.country }}</p>
+    <p>Gender: {{ formDetails.gender }}</p>
+  </div>
+</form>
+
+</div>
